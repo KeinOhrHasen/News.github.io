@@ -1,7 +1,7 @@
 //  download the JSON file
 window.onload = () =>{
 //     fetch("https://api.myjson.com/bins/140vry")
-    fetch("file:///db/db.json")
+    fetch("file://db/db.json")
 //        fetch("https://keinohrhasen.github.io/News.github.io/db/db.json")
 
     
