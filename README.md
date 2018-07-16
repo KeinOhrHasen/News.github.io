@@ -1,8 +1,8 @@
-### News.github.io
+# News.github.io
 
 
 ```
-*A short instruction for this progect:
+A short instruction for this progect:
 ```
   1. click on Github Page link
   2. ...wait a moment, while JS will parse json
