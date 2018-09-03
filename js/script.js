@@ -1,35 +1,43 @@
-window.onload = () =>{
+if (!localStorage.getItem("testJSON")){
+  loadJSON();
+}else {
+  let text = localStorage.getItem("testJSON");
 
+  let arr = JSON.parse(text);
+  createArticle(arr)   
+}
+
+function loadJSON(){
     fetch("db/db.json")
-    .then(response => {
-      response.json().then((data) => {
 
-        // store data in localStorage
-        const myJSON = JSON.stringify(data);
-        localStorage.setItem("testJSON", myJSON);
-      });
+    .then(response => {
+      response.json()
+    
+    .then((data) => {
+      // store data in localStorage
+      const myJSON = JSON.stringify(data);
+      localStorage.setItem("testJSON", myJSON);
+      })
     })
+
     .catch(err => {
       console.log(err);
     });
+}
 
-
-
-    // get date from localStorage
-    let text = localStorage.getItem("testJSON");
-    array = JSON.parse(text);
-
+// create DOM elements
+function createArticle(array){
 
     // create DOM elements
     let article_wrapper =document.getElementById("art_wrp");
-    
+
     for (let i = 0; i < array.length; i++){
         let art_item = document.createElement("div");
 
         let art_main_img = document.createElement("img");
         let art_timelime_wrp = document.createElement("div");
         let art_title = document.createElement("div");
-        
+
         let art_descr = document.createElement("div");
         let art_img_wrp = document.createElement("div");
         let art_img = document.createElement("img");
@@ -65,7 +73,7 @@ window.onload = () =>{
         let month = "<span class='date_month'>" + array[i].date.slice(-3)    + "</span>";
         art_timelime_date.innerHTML = day+month;
 
-        
+
         // put all child elements to article items
         art_timelime_wrp.appendChild(art_timelime_date);
         art_img_wrp.appendChild(art_img);
