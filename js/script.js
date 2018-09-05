@@ -1,9 +1,7 @@
-
 if (!localStorage.getItem("testJSON")){
     loadJSON();
 }else {
     let text = localStorage.getItem("testJSON");
-  
     let arr = JSON.parse(text);
     createArticle(arr)   
   }
